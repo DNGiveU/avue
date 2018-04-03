@@ -1,15 +1,5 @@
-## <font>avue1.0发布了！！！欢迎点击演示地址体验</font>
+## <font>avue</font>
 简体中文
-欢迎加入QQ交流群，互相学习   
-前端avue交流群：606410437  
-后台微服务群：23754102   
-服务端解决方案：https://gitee.com/log4j/pig
-
-演示地址:[http://122.4.247.156:7777](http://122.4.247.156:7777)——jenkins+docker+git钩子自动部署<br />
-
-码云地址:[https://gitee.com/smallweigit/avue](https://gitee.com/smallweigit/avue)<br />
-
-github地址：[https://github.com/nmxiaowei/avue](https://github.com/nmxiaowei/avue)<br />
 
 ## 简介
 
