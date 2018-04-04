@@ -16,6 +16,7 @@ Vue.use(VueRouter);
 export default new VueRouter({
 	// mode: 'history',
 	strict: process.env.NODE_ENV !== 'production',
+	// 显示组件的滚动位置
 	scrollBehavior(to, from, savedPosition) {
 		if (savedPosition) {
 			return savedPosition

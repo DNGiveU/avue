@@ -1,5 +1,6 @@
 import { baseUrl, khglUrl, dicUrl } from '@/config/env'
 import request from '@/router/axios'
+import { getToken } from '@/util/auth'
 import { userInfo, tableData } from '@/mock/user'
 import { menu, menuAll } from '@/mock/menu'
 
@@ -9,6 +10,7 @@ import { menu, menuAll } from '@/mock/menu'
  * @param {string} password 未加密的密码
  * @param {string} code 验证码
  * @param {string} redomStr 随机码
+ * @return String
  */
 export const loginByUsername = (username, password, code, redomStr) => {
     return new Promise((resolve, reject) => {
@@ -46,6 +48,12 @@ export const getUserInfo = () => {
         // resolve({ data: userInfo });
     })
 }
+
+/**
+ * 获取菜单, 满足菜单格式
+ * @param {Number} parentId 序号菜单
+ * @return [[menu ...], [menu ...]]
+ */
 export const getMenu = (parentId) => {
     return new Promise((resolve, reject) => {
         if (!parentId) parentId = 0;
@@ -58,14 +66,32 @@ export const getMenuAll = () => {
     })
 }
 
+/**
+ * 获取用户数据 
+ * @param {Number} page 第几页
+ * @return [{id, name, usename, type, sex, grade, address, check}, ...]
+ */
 export const getTableData = (page) => {
     return new Promise((resolve, reject) => {
         resolve({ data: tableData });
     })
 }
+
+/**
+ * 退出登陆
+ */
 export const logout = () => {
     return new Promise((resolve, reject) => {
-        resolve();
+        // 移除服务端凭证
+        request({
+            url: baseUrl + '/auth/authentication/removeToken',
+            method: 'get',
+            params: {
+                accesstoken: getToken()
+            }
+        }).then(res => {
+            resolve();
+        });
     })
 }
 

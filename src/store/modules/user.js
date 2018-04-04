@@ -125,6 +125,7 @@ const user = {
             state.userInfo = userInfo;
         },
         SET_MENU: (state, menu) => {
+            // 进行菜单角色过滤
             const list = menu.filter(ele => {
                 if (validatenull(ele.meta.roles)) {
                     return true;
