@@ -85,8 +85,8 @@ export const logout = () => {
         // 移除服务端凭证
         request({
             url: baseUrl + '/auth/authentication/removeToken',
-            method: 'get',
-            params: {
+            method: 'post',
+            data: {
                 accesstoken: getToken()
             }
         }).then(res => {
